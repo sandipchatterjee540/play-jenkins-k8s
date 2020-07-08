@@ -11,6 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
+        sh 'echo "$BUILD_NUMBER"'
         git 'https://github.com/sandipchatterjee540/play-jenkins-k8s.git'
       }
     }
