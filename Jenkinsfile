@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "192.168.43.202:5000/sandiptest/myweb"
+    registry = "192.168.43.26:5000/sandiptest/myweb"
     dockerImage = ""
   }
 
@@ -36,7 +36,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "MY_KUBE_CONFIG")
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "KUBECONFIG")
         }
       }
     }
