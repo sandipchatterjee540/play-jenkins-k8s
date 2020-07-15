@@ -3,6 +3,9 @@ pipeline {
   environment {
     registry = "192.168.43.26:5000/sandiptest/myweb"
     dockerImage = ""
+    git_cr = 'GIT_CR'
+    git_url = 'https://github.com/sandipchatterjee540/play-jenkins-k8s.git'
+    
   }
 
   agent any
@@ -12,7 +15,7 @@ pipeline {
     stage('Checkout Source') {
       steps {
         sh 'echo ${BUILD_NUMBER}'
-        git 'https://github.com/sandipchatterjee540/play-jenkins-k8s.git'
+        git credentialsId: ${git_cr} , url: ${git_url}
       }
     }
 
